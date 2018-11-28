@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>4种垂直水平居中</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				height: 100%;
+				color: #fff;
+				font-size: 15px;
+				font-weight: bold;
+			}
+			/* 第一种:父相子绝 top left50%  用margin方法上移-h/2 左移-h/2 */
+			.parentA {position: relative;background: orange;border: 1px solid;height: 20%;}
+			.parentA .childA {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 100px;
+				height: 100px;
+				margin: -50px 0 0 -50px;
+				background: blue;
+			}
+			/* 第二种 父相子绝 top left50%  用translate方法上移-h/2 左移-h/2 */
+			.parentB {position: relative;background: orange;border: 1px solid;height: 20%;}
+			.parentB .childB {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 200px;
+				height: 100px;
+				background: blue;
+				transform: translate(-50%,-50%);
+			}
+			/* 第三种 Flex弹性布局*/
+			.parentC {
+				background: orange;border: 1px solid;height: 20%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.parentC .childC {
+				width: 250px;
+				height: 100px;
+				background: blue;
+			}
+			/* 第四种，使用table-cell,vertical-align,text-align,这种方法比较严格，父元素百分比的尺寸失效，子元素要inline-box */
+			.parentD {
+				background: orange;border: 1px solid;
+				width: 1800px;
+				height: 200px;
+				display: table-cell;
+				vertical-align: middle;
+				text-align: center;
+			}
+			.parentD .childD {
+				display: inline-block;
+				width: 350px;
+				height: 100px;
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="parentA">
+			<pre>
+				/* 第一种:父相子绝 top left50%  用margin方法上移-h/2 左移-h/2 */
+				.parentA {position: relative;background: orange;border: 1px solid;height: 20%;}
+				.parentA .childA {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					width: 100px;
+					height: 100px;
+					margin: -50px 0 0 -50px;
+					background: blue;
+				}
+			</pre>
+			
+			<div class="childA"></div>
+		</div>
+		
+		<div class="parentB">
+			<pre>
+				/* 第二种 父相子绝 top left50%  用translate方法上移-h/2 左移-h/2 */
+				.parentB {position: relative;background: orange;border: 1px solid;height: 20%;}
+				.parentB .childB {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					width: 200px;
+					height: 100px;
+					background: blue;
+					transform: translate(-50%,-50%);
+				}
+			</pre>
+			<div class="childB"></div>
+		</div>
+		
+		<div class="parentC">
+			<div class="childC">
+				<pre style="position: relative;top: -40px;">
+					/* 第三种 Flex弹性布局*/
+					.parentC {
+						background: orange;border: 1px solid;height: 20%;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+					}
+					.parentC .childC {
+						width: 250px;
+						height: 100px;
+						background: blue;
+					}
+				</pre>
+			</div>
+		</div>
+		
+		<div class="parentD">
+			<div class="childD"></div>
+		</div>
+		<pre style="position: relative;color: #000;top: -170px;">
+			/* 第四种，使用table-cell,vertical-align,text-align,这种方法比较严格，父元素百分比的尺寸失效，子元素要inline-box */
+			.parentD {
+				background: orange;border: 1px solid;
+				width: 1800px;
+				height: 200px;
+				display: table-cell;
+				vertical-align: middle;
+				text-align: center;
+			}
+			.parentD .childD {
+				display: inline-block;
+				width: 350px;
+				height: 100px;
+				background: blue;
+			}
+		</pre>
+	</body>
+</html>
